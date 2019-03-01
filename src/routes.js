@@ -5,5 +5,5 @@ import Stocks from './components/stocks/Stocks.vue';
 export default [
     { path: '', component: Home },
     { path: '/portfolio', component: Portfolio },
-    { path: '/stocks', component: Stocks },
+    { path: '/stocksModule', component: Stocks },
 ];

@@ -5,19 +5,17 @@
 </template>
 
 <script>
-import stocks from '../../data/stocks-data';
+
+import { mapGetters } from 'vuex';
 
 import Stock from './Stock.vue';
 
 export default {
-    data() {
-        return {
-            stocks,
-        };
-    },
     components: {
         appStock: Stock,
     },
-    // TODO: 4 - Fetch stocks from state instead of directly from dummy data
+    computed: {
+      ...mapGetters(['stocks'])
+    },
 };
 </script>

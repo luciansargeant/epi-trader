@@ -1,5 +1,13 @@
 import Vue from 'vue';
+import Vuex from 'vuex';
 
-// TODO: 1 - Add Vuex to the application
+import stocksModule from './modules/stocks';
 
-// export default new Vuex.Store({});
+Vue.use(Vuex);
+
+
+export default new Vuex.Store({
+  modules: {
+    stocksModule
+  }
+});

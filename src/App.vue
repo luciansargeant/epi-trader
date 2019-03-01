@@ -10,13 +10,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import Header from './components/Header.vue';
 
 export default {
     components: {
         appHeader: Header,
     },
-    // TODO: 3 - Initialise the stocks when the App is created
+    created() {
+      this.initStocks();
+    },
+    methods: {
+      ...mapActions(['initStocks'])
+    }
 };
 </script>
 

@@ -1,24 +1,28 @@
-// TODO: 2 - Add 'stocks' to the state; and add this module to the store
+// TODO: 2 - Add 'stocksModule' to the state; and add this module to the store
+
+import stocksData from '../../data/stocks-data';
 
 const state = {
-
+    stocks: [],
 };
 
 const mutations = {
     setStocks(state, stocks) {
-        // 2
+      state.stocks = stocks;
     },
 };
 
 const actions = {
     initStocks({ commit }) {
-        // 2
+      console.log('Being called', stocksData  );
+      commit('setStocks', stocksData);
     },
 };
 
 const getters = {
-    stocks(state) {
-        // 2
+    stocks()  {
+        console.log("AHHHHHH");
+        return state.stocks;
     },
 };
 
