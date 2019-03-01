@@ -1,17 +1,21 @@
 <template>
-  <!-- TODO: 1 - Add links to router -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <!-- HERE -->
-        <a href="#" class="navbar-brand">EPI-Trader</a>
+        <router-link to="/">
+          <a class="navbar-brand">EPI-Trader</a>
+        </router-link>
       </div>
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <!-- HERE -->
-          <a href="#">Portfolio</a>
-          <a href="#">Stocks</a>
+          <router-link to="/portfolio" tag="li">
+            <a class="navbar-brand">Portfolio</a>
+          </router-link>
+          <router-link to="/stocks" tag="li">
+            <a class="navbar-brand">Stocks</a>
+          </router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
