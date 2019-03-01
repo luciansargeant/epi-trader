@@ -20,7 +20,7 @@ const actions = {
 };
 
 const getters = {
-    stocks()  {
+    stocks(state)  {
         console.log("AHHHHHH");
         return state.stocks;
     },
