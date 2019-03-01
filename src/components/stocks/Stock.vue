@@ -49,7 +49,7 @@ export default {
                 quantity: this.quantity,
             };
 
-            // TODO: 5 - Let's buy the stock!
+            this.$store.dispatch('buyStock', order);
             console.log(order);
 
             this.quantity = 0;

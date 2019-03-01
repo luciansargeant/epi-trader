@@ -5,10 +5,27 @@ const state = {
 
 const mutations = {
     buyStock(state, { stockId, quantity, stockPrice }) {
-        // TODO: 1 - Find stock, update its quantity, update portfolio funds
+      const myStock = state.portfolioStocks.find(stock => stock.id === stockId);
+
+      if (myStock) {
+        myStock.quantity += quantity;
+      }
+      else {
+        state.portfolioStocks.push({ id: stockId, quantity })
+      }
+
+      state.funds -= quantity * stockPrice;
     },
     sellStock(state, { stockId, quantity, stockPrice }) {
-        // TODO: 2 - Find stock, update its quantity, update portfolio funds
+      const myStock = state.portfolioStocks.find(stock => stock.id === stockId);
+
+      if (myStock && myStock.quantity > quantity) {
+        myStock.quantity -= quantity;
+        state.funds += quantity * stockPrice;
+      }
+      else {
+        state.portfolioStocks.splice(state.portfolioStocks.indexOf(myStock), 1);
+      }
     },
 };
 
@@ -23,7 +40,16 @@ const actions = {
 
 const getters = {
     stockPortfolio(state, getters) {
-        // TODO: 3 - For each portfolio stock, find the related market stock and merge the 2 to create a stock portfolio
+        return state.portfolioStocks.map((portfolioStock) => {
+          const marketStock = getters.stocks.find(stock => stock.id === portfolioStock.id);
+
+          return {
+            id: marketStock.id,
+            quantity: marketStock.quantity,
+            name: marketStock.name,
+            price: marketStock.price
+          }
+        });
         // in the form { id, quantity, name, price }
     },
     funds(state) {
